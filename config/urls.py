@@ -16,11 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from pybo.views import base_views  
+from pybo.views import base_views 
+from goodcom1.views import hello_rest_api 
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/hello/', hello_rest_api, name='hello_rest_api'),
     path('pybo/', include('pybo.urls')), 
+    path('goodcom1/', include('goodcom1.urls')),
     path('common/', include('common.urls')),
     path('', base_views.index, name='index'),  # '/' 에 해당되는 path
 ]

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컴퓨터활용능력2급 필기</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; height: 100vh; margin: 0; }
+        .sidebar { width: 250px; background: #f4f4f4; padding: 20px; overflow-y: auto; }
+        .content { flex: 1; padding: 20px; overflow-y: auto; }
+        .sidebar ul { list-style: none; padding: 0; }
+        .sidebar ul li { margin: 10px 0; cursor: pointer; color: blue; }
+        .submenu { display: none; padding-left: 20px; }
+        .menu-item { font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>컴퓨터활용능력2급 필기</h3>
+        <ul>
+            <li class="menu-item" onclick="toggleMenu('section1')">1. 개요</li>
+            <ul id="section1" class="submenu">
+                <li onclick="loadPage('text.html')">1) 화면설명</li>
+                <li onclick="loadPage('textpage1.html')">2) 데이터입력</li>
+                <li><a href='goodcom1/textpage1.html'>3) 데이터입력</a></li>
+            </ul>
+            <li class="menu-item" onclick="toggleMenu('section2')">2. 함수1</li>
+            <ul id="section2" class="submenu">
+                <li onclick="loadPage('video.html')">1) 수식입력의 기본</li>
+                <li onclick="loadPage('quiz.html')">2) 기본 함수</li>
+                <li onclick="loadPage('quiz.html')">2) 숫자 함수</li>
+                <li onclick="loadPage('quiz.html')">2) if rank.EQ 논리 함수</li>
+                <li onclick="loadPage('quiz.html')">2) count 함수</li>
+            </ul>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <iframe id="contentFrame" src="" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+
+    <script>
+        function loadPage(page) {
+            document.getElementById("contentFrame").src = page;
+        }
+        
+        function toggleMenu(id) {
+            var submenu = document.getElementById(id);
+            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
